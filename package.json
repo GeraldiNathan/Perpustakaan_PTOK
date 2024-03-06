@@ -1,0 +1,19 @@
+{
+  "name": "perpustakaan_ptok",
+  "version": "1.0.0",
+  "description": "PTOK Mini Project - PHP MVC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./app/input.css -o ./app/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "preline": "^2.0.3"
+  }
+}
