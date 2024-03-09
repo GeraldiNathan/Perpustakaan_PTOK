@@ -15,8 +15,8 @@
             <img src="<?= BASEURL; ?>/img/imgLogin.jpg" alt="" style="height: auto;">
         </div>
         <div class="w-full p-8 lg:w-1/2">
-            <h2 class="text-2xl font-semibold text-gray-700 text-center">Brand</h2>
-            <p class="text-xl text-gray-600 text-center">Welcome back!</p>
+            <h2 class="text-2xl font-semibold text-gray-700 text-center">PT OTAK KANAN</h2>
+            <p class="text-xl text-gray-600 text-center font-medium">Library OK</p>
             <a href="#" class="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                 <div class="px-4 py-3">
                     <svg class="h-6 w-6" viewBox="0 0 40 40">
@@ -30,7 +30,7 @@
             </a>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 lg:w-1/4"></span>
-                <a href="#" class="text-xs text-center text-gray-500 uppercase">or login with email</a>
+                <a href="" class="text-xs text-center text-gray-500 uppercase">or login with email</a>
                 <span class="border-b w-1/5 lg:w-1/4"></span>
             </div>
             <div class="mt-4">
@@ -40,7 +40,6 @@
             <div class="mt-4">
                 <div class="flex justify-between">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                    <a href="#" class="text-xs text-gray-500">Forget Password?</a>
                 </div>
                 <input class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" />
             </div>
@@ -49,7 +48,7 @@
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="<?= BASEURL; ?>/signup" class="text-xs text-gray-500 uppercase">or sign up</a>
+                <a href="<?= BASEURL; ?>/register" class="text-xs text-gray-500 uppercase">or sign up</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>
