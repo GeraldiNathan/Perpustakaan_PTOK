@@ -7,15 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="http://localhost:8000/Perpustakaan_PTOK/app/output.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body class=" overflow-x-hidden ">
     <header class="flex flex-wrap fixed top-0 bg-white z-[50] sm:justify-start sm:flex-nowrap w-full text-sm py-4">
         <nav class="max-w-[85rem]  w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between" aria-label="Global">
-            <a class="sm:order-1 flex-none text-2xl font-bold" href="#">Perpustakaan Kita.</a>
+            <a class="sm:order-1 flex-none text-2xl font-bold" href="<?= BASEURL; ?>">Perpustakaan Kita.</a>
             <div class="sm:order-3 flex items-center gap-x-2">
-                <button type="button" class="sm:hidden hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-collapse="#navbar-alignment" aria-controls="navbar-alignment" aria-label="Toggle navigation">
+                <!-- <button type="button" class="sm:hidden hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-collapse="#navbar-alignment" aria-controls="navbar-alignment" aria-label="Toggle navigation">
                     <svg class="hs-collapse-open:hidden flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" x2="21" y1="6" y2="6" />
                         <line x1="3" x2="21" y1="12" y2="12" />
@@ -25,18 +26,25 @@
                         <path d="M18 6 6 18" />
                         <path d="m6 6 12 12" />
                     </svg>
-                </button>
-                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                    <a href="<?= BASEURL; ?>/login">
-                        Sign In
-                    </a>
-                </button>
-                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                    <a href="<?= BASEURL; ?>/register">
-                        Sign Up
-                    </a>
-                </button>
-            </div>
+                </button> -->
 
+                <?php if (isset($_SESSION['nama'])) : ?>
+                    <p class="text-sm font-medium">Halo, <?= $_SESSION['nama']; ?> 😄</p>
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                        <a href="<?= BASEURL; ?>/login/logOut">Logout</a>
+                    </button>
+                <?php else : ?>
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                        <a href="<?= BASEURL; ?>/login">
+                            Sign In
+                        </a>
+                    </button>
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                        <a href="<?= BASEURL; ?>/register">
+                            Sign Up
+                        </a>
+                    </button>
+                <?php endif; ?>
+            </div>
         </nav>
     </header>
