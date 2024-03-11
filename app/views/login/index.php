@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="http://localhost:8000/Perpustakaan_PTOK/app/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
 <div class="py-[140px]">
     <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-        <div class="hidden lg:block lg:w-1/2 bg-cover">
+        <div class="hidden lg:block lg:w-1/2  bg-cover">
             <img src="<?= BASEURL; ?>/img/imgLogin.jpg" alt="" style="height: auto;">
         </div>
         <div class="w-full p-8 lg:w-1/2">

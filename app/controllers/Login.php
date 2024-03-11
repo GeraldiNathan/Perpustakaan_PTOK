@@ -6,6 +6,7 @@ class Login extends Controller
     public function index()
     {
         $data['judul'] = 'Login Page';
+        $this->view('templates/header', $data);
         $this->view('login/index');
     }
 }
