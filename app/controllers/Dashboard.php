@@ -6,8 +6,9 @@ class Dashboard extends Controller
     public function index()
     {
         $data['judul'] = 'Dashboard';
+        $data['buku'] = $this->model('Buku')->getAllBuku();
         $this->view('templates/header', $data);
-        $this->view('dashboard/index');
+        $this->view('dashboard/index', $data);
         $this->view('templates/footer');
     }
 
