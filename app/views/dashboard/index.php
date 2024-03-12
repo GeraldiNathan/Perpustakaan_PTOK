@@ -13,12 +13,9 @@
     </div>
 
     <div class="mt-10 w-full flex">
-        <div id="tambah-buku" class="content-container w-1/2">
+
+    <div id="tambah-buku" class="content-container w-1/2">
             <form action="<?= BASEURL; ?>/dashboard/addBuku" class="flex flex-col gap-3" method="post">
-                <div class="flex flex-col gap-2">
-                    <label for="kode_buku" class="font-semibold text-lg">Kode buku</label>
-                    <input type="text" id="kode_buku" class="border rounded-lg border-black p-2" name="kode_buku">
-                </div>
                 <div class="flex flex-col gap-2">
                     <label for="judul_buku" class="font-semibold text-lg">Judul buku</label>
                     <input type="text" id="judul_buku" class="border rounded-lg border-black p-2" name="judul_buku">
@@ -58,9 +55,36 @@
                 </div>
             </form>
         </div>
+
         <div id="tabel-buku" class="content-container" style="display: none;">
-            <p>Konten Tabel Buku</p>
+            <div class="mx-auto w-full overflow-y-auto">
+            <table id="bukuTable" class="w-full bg-white border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="py-2 px-4 border-b border-r">Kode Buku</th>
+                        <th class="py-2 px-4 border-b border-r">Judul Buku</th>
+                        <th class="py-2 px-4 border-b border-r">Pengarang Buku</th>
+                        <th class="py-2 px-4 border-b border-r">Kategori Buku</th>
+                        <th class="py-2 px-4 border-b border-r">Tahun Terbit</th>
+                        <th class="py-2 px-4 border-b border-r">Jumlah Halaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data['buku'] as $buku) : ?>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['kode_buku']; ?></td>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['judul_buku']; ?></td>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['pengarang_buku']; ?></td>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['kategori_buku']; ?></td>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['tahun_terbit']; ?></td>
+                            <td class="py-2 px-4 border-b border-r"><?= $buku['jumlah_hal']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
+</div>
+
     </div>
 </div>
 
@@ -87,5 +111,15 @@
         btnTambah.classList.add("bg-white");
         btnTabel.classList.add("bg-amber-500");
         btnTabel.classList.remove("bg-white");
+    });
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#bukuTable').DataTable({
+            autoWidth: false 
+        });
     });
 </script>
