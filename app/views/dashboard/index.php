@@ -57,7 +57,7 @@
         </div>
 
         <div id="tabel-buku" class="container" style="display: none;">
-            <div class="mx-0 w-full overflow-y-auto">
+            <div class="mx-0 w-full">
                 <table id="bukuTable" class="w-full bg-white border border-gray-300">
                     <thead>
                         <tr class="bg-gray-100">
@@ -73,7 +73,7 @@
                     <tbody>
                         <?php foreach ($data['buku'] as $buku) : ?>
                             <tr>
-                                <td class="py-2 px-4 border-b border-r"><?= $buku['kode_buku']; ?></td>
+                                <td class="py-2 px-4 border-b border-r  "><?= $buku['kode_buku']; ?></td>
                                 <td class="py-2 px-4 border-b border-r"><?= $buku['judul_buku']; ?></td>
                                 <td class="py-2 px-4 border-b border-r"><?= $buku['pengarang_buku']; ?></td>
                                 <td class="py-2 px-4 border-b border-r"><?= $buku['kategori_buku']; ?></td>
@@ -127,7 +127,11 @@
     $(document).ready(function() {
         $('#bukuTable').DataTable({
             autoWidth: false,
-            
+            columnDefs: [{
+                targets: [0, 4, 5],
+                className: 'text-center'
+            }]
+
         });
     });
 </script>
