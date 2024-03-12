@@ -24,4 +24,17 @@ class Dashboard extends Controller
             exit;
         }
     }
+
+    public function hapus()
+    {
+        if ($this->model('Buku')->deleteDataBuku($_POST['kode_buku']) > 0) {
+            Flasher::setFlash('Data Buku', 'Berhasil', 'green', 'di Hapus');
+            header('location:' . BASEURL . '/dashboard');
+            exit;
+        } else {
+            Flasher::setFlash('Data Buku', 'gagal', 'red', 'di Hapus');
+            header('location:' . BASEURL . '/dashboard');
+            exit;
+        }
+    }
 }

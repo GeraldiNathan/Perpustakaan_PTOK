@@ -14,7 +14,7 @@
 
     <div class="mt-10 w-full flex">
 
-    <div id="tambah-buku" class="content-container w-1/2">
+        <div id="tambah-buku" class="content-container w-1/2">
             <form action="<?= BASEURL; ?>/dashboard/addBuku" class="flex flex-col gap-3" method="post">
                 <div class="flex flex-col gap-2">
                     <label for="judul_buku" class="font-semibold text-lg">Judul buku</label>
@@ -56,34 +56,42 @@
             </form>
         </div>
 
-        <div id="tabel-buku" class="content-container" style="display: none;">
-            <div class="mx-auto w-full overflow-y-auto">
-            <table id="bukuTable" class="w-full bg-white border border-gray-300">
-                <thead>
-                    <tr class="bg-gray-100">
-                        <th class="py-2 px-4 border-b border-r">Kode Buku</th>
-                        <th class="py-2 px-4 border-b border-r">Judul Buku</th>
-                        <th class="py-2 px-4 border-b border-r">Pengarang Buku</th>
-                        <th class="py-2 px-4 border-b border-r">Kategori Buku</th>
-                        <th class="py-2 px-4 border-b border-r">Tahun Terbit</th>
-                        <th class="py-2 px-4 border-b border-r">Jumlah Halaman</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($data['buku'] as $buku) : ?>
-                        <tr>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['kode_buku']; ?></td>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['judul_buku']; ?></td>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['pengarang_buku']; ?></td>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['kategori_buku']; ?></td>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['tahun_terbit']; ?></td>
-                            <td class="py-2 px-4 border-b border-r"><?= $buku['jumlah_hal']; ?></td>
+        <div id="tabel-buku" class="container" style="display: none;">
+            <div class="mx-0 w-full overflow-y-auto">
+                <table id="bukuTable" class="w-full bg-white border border-gray-300">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-2 px-4 border-b border-r">Kode Buku</th>
+                            <th class="py-2 px-4 border-b border-r">Judul Buku</th>
+                            <th class="py-2 px-4 border-b border-r">Pengarang Buku</th>
+                            <th class="py-2 px-4 border-b border-r">Kategori Buku</th>
+                            <th class="py-2 px-4 border-b border-r">Tahun Terbit</th>
+                            <th class="py-2 px-4 border-b border-r">Jumlah Halaman</th>
+                            <th class="py-2 px-6 border-b border-r">Aksi</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($data['buku'] as $buku) : ?>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['kode_buku']; ?></td>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['judul_buku']; ?></td>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['pengarang_buku']; ?></td>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['kategori_buku']; ?></td>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['tahun_terbit']; ?></td>
+                                <td class="py-2 px-4 border-b border-r"><?= $buku['jumlah_hal']; ?></td>
+                                <td class="py-2 px-6 border-b border-r flex">
+                                    <a href="#edit" class="text-sm mx-1 px-3 py-1 rounded-lg bg-green-400 border border-black hover:bg-green-500 transition duration-300">Edit</a>
+                                    <form action="<?= BASEURL ?>/dashboard/hapus" method="post">
+                                        <input type="hidden" name="kode_buku" value="<?= $buku['kode_buku']; ?>">
+                                        <button type="submit" class="text-sm mx-1 px-2 py-1 rounded-lg bg-red-400 border border-black hover:bg-red-500 transition duration-300" onclick="return confirm('Apakah yakin anda ingin menghapus buku ini?')">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-</div>
 
     </div>
 </div>
@@ -112,14 +120,14 @@
         btnTabel.classList.add("bg-amber-500");
         btnTabel.classList.remove("bg-white");
     });
-
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#bukuTable').DataTable({
-            autoWidth: false 
+            autoWidth: false,
+            
         });
     });
 </script>

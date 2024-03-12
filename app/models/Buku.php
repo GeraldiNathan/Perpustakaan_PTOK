@@ -65,4 +65,13 @@ class Buku{
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function deleteDataBuku($id)
+    {
+        $query = "DELETE FROM " . $this->table . " WHERE kode_buku=:kode_buku";
+        $this->db->query($query);
+        $this->db->bind('kode_buku', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }
