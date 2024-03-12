@@ -12,9 +12,10 @@ class signIn_model
 
     public function getUser($username, $password)
     {
-        $this->db->query("SELECT * FROM " . $this->users . " WHERE username = :username AND password =:password");
+        $this->db->query("SELECT * FROM " . $this->users . " WHERE username = :username");
         $this->db->bind('username', $username);
-        $this->db->bind('password', $password);
-        return $this->db->resultSet();
+        // $this->db->bind('password', $password);
+        // return $this->db->resultSet();
+        return $this->db->single();
     }
 }

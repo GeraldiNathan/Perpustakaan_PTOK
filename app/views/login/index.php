@@ -1,3 +1,4 @@
+<script src="./node_modules/preline/dist/preline.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <div class="py-[140px]">
@@ -43,7 +44,7 @@
 
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="<?= BASEURL; ?>/register" class="text-xs text-gray-500 uppercase">or sign up</a>
+                <a href="<?= BASEURL; ?>/register" class="text-xs text-gray-500 uppercase hover:text-gray-800">Daftar Akun</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>

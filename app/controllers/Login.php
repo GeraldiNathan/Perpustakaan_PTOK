@@ -5,9 +5,9 @@ class Login extends Controller
 
     public function index()
     {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
+        // if (!isset($_SESSION)) {
+        //     session_start();
+        // }
 
         if (isset($_SESSION['nama'])) {
             header('Location:' . BASEURL . '/dashboard');
@@ -20,19 +20,28 @@ class Login extends Controller
 
     public function signIn()
     {
-        session_start();
+        // if (!isset($_SESSION)) {
+
+        //     session_start();
+        // }
 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $data['login'] = $this->model('signIn_model')->getUser($username, $password);
+        $userData = $this->model('signIn_model')->getUser($username, $password);
 
-        if ($data['login'] == NULL) {
-            header("Location:" . BASEURL . "/404");
-        } else {
-            foreach ($data['login'] as $row) :
-                $_SESSION['nama'] = $row['nama'];
+        if ($userData) {
+            $hashedPassword = $userData['password'];
+            if (password_verify($password, $hashedPassword)) {
+                $_SESSION['nama'] = $userData['nama'];
                 header("Location:" . BASEURL . '/dashboard');
-            endforeach;
+                exit();
+            } else {
+                header("Location:" . BASEURL . "/404");
+                exit();
+            }
+        } else {
+            header("Location:" . BASEURL . "/404");
+            exit();
         }
     }
 
