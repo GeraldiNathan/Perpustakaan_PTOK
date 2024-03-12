@@ -6,10 +6,6 @@ PTOK Mini Project - PHP MVC
 
 To run tests, run the following command
 
-```bash
-  php -S localhost:8000 form.php
-```
-
 1. pastikan teman2 punya node js versi LTS atau 20 keatas
    link donwload : https://nodejs.org/en
 
