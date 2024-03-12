@@ -1,13 +1,10 @@
 <?php
 
-class Buku
-{
-
+class Buku{
     private $table = 'buku';
     private $db;
 
-    public function  __construct()
-    {
+    public function __construct(){
         $this->db = new Database;
     }
 
@@ -17,6 +14,7 @@ class Buku
         $this->db->execute();
         return $this->db->resultSet();
     }
+
 
     public function getMahasiswaById($id)
     {
@@ -34,10 +32,8 @@ class Buku
 
     public function insertDataBuku($data)
     {
-        $query = "INSERT INTO " . $this->table . " (`kode_buku`,`judul_buku`, `pengarang_buku`, `kategori_buku`, `tahun_terbit`, `jumlah_hal`)  
-        VALUES (:kode_buku,:pengarang_buku,:judul_buku,:kategori_buku,:tahun_terbit,:jumlah_hal)";
+        $query = "INSERT INTO buku VALUES ('', :judul_buku, :pengarang_buku, :kategori_buku, :tahun_terbit, :jumlah_hal)";
         $this->db->query($query);
-        $this->db->bind('kode_buku', $data['kode_buku']);
         $this->db->bind('judul_buku', $data['judul_buku']);
         $this->db->bind('pengarang_buku', $data['pengarang_buku']);
         $this->db->bind('kategori_buku', $data['kategori_buku']);
