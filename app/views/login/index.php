@@ -1,7 +1,7 @@
 <script src="./node_modules/preline/dist/preline.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 
-<div class="py-[140px]">
+<div class="p-8">
     <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
         <div class="hidden lg:block lg:w-1/2  bg-cover">
             <img src="<?= BASEURL; ?>/img/imgLogin.jpg" alt="" style="height: auto;">
