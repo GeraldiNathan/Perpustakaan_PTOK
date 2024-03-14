@@ -80,7 +80,7 @@
                                 <td class="py-2 px-4 border-b border-r"><?= $buku['tahun_terbit']; ?></td>
                                 <td class="py-2 px-4 border-b border-r"><?= $buku['jumlah_hal']; ?></td>
                                 <td class="py-2 px-6 border-b border-r flex">
-                                    <button id="ubah" data-id=<?= $buku["kode_buku"] ?> data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="buku-uniqueBuku block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button id="ubah" data-id=<?= $buku["kode_buku"] ?> data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="buku-uniqueBuku text-sm mx-1 px-3 py-1 rounded-lg bg-blue-400 border border-black hover:bg-blue-500 transition duration-300" type="button">
                                         Ubah
                                     </button>
                                     <form action="<?= BASEURL ?>/dashboard/hapus" method="post">
