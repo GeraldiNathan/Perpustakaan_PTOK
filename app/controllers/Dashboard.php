@@ -25,6 +25,25 @@ class Dashboard extends Controller
         }
     }
 
+    public function getubah()
+    {
+        echo json_encode($this->model('Buku')->getBukuById($_POST["kodeBuku"]));
+    }
+
+
+    public function ubah()
+    {
+        if ($this->model('Buku')->ubahDataBuku($_POST) > 0) {
+            Flasher::setFlash('Data Buku', 'Berhasil', 'green', 'diubah');
+            header('location:' . BASEURL . '/dashboard');
+            exit;
+        } else {
+            Flasher::setFlash('Data Buku', 'gagal', 'red', 'diubah');
+            header('location:' . BASEURL . '/dashboard');
+            exit;
+        }
+    }
+
     public function hapus()
     {
         if ($this->model('Buku')->deleteDataBuku($_POST['kode_buku']) > 0) {

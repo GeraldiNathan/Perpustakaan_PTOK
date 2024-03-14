@@ -1,10 +1,12 @@
 <?php
 
-class Buku{
+class Buku
+{
     private $table = 'buku';
     private $db;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->db = new Database;
     }
 
@@ -16,10 +18,10 @@ class Buku{
     }
 
 
-    public function getMahasiswaById($id)
+    public function getBukuById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_mahasiswa=:id_mahasiswa ');
-        $this->db->bind('id_mahasiswa', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kode_buku=:kode_buku ');
+        $this->db->bind('kode_buku', $id);
         return $this->db->single();
     }
 
@@ -71,6 +73,27 @@ class Buku{
         $query = "DELETE FROM " . $this->table . " WHERE kode_buku=:kode_buku";
         $this->db->query($query);
         $this->db->bind('kode_buku', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataBuku($data)
+    {
+        $query = "UPDATE " . $this->table . " SET
+            judul_buku =:judul_buku,
+            pengarang_buku =:pengarang_buku,
+            kategori_buku =:kategori_buku,
+            tahun_terbit =:tahun_terbit,
+            jumlah_hal =:jumlah_hal
+                WHERE kode_buku =:kode_buku";
+
+        $this->db->query($query);
+        $this->db->bind('judul_buku', $data['_judul_buku']);
+        $this->db->bind('pengarang_buku', $data['_pengarang_buku']);
+        $this->db->bind('kategori_buku', $data['_kategori_buku']);
+        $this->db->bind('tahun_terbit', $data['_tahun_terbit']);
+        $this->db->bind('jumlah_hal', $data['_jumlah_hal']);
+        $this->db->bind('kode_buku', $data["_kode_buku"]);
         $this->db->execute();
         return $this->db->rowCount();
     }
